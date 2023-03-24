@@ -1,17 +1,187 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Mono:ital,wght@0,400;0,600;1,400;1,600&display=swap');
 
 :root {
---main-color: #00b6b9;
---main-font: "poppins", "open sans", "HelveticaNeue", "Helvetica Neue","Helvetica-Neue", Helvetica, Arial, sans-serif;
+  --bg: #0c8081;
+  --white: #bfbfbf;
+  --black: #000;
+  --red: #bb2323;
 }
-* {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    font-family: var(--main-font);
- }
 
- * ::selection {
-    background: var(--main-color);
-    color: white;
- }
+* {
+  box-sizing: border-box;
+  font-size: 15px;
+  line-height: 1.5em;
+  font-weight: normal;
+}
+
+*::selection {
+  background: var(--white);
+  color: var(--black);
+}
+
+main *::selection {
+  background: var(--bg);
+  color: white;
+}
+
+html {
+  background: var(--black);
+}
+
+body {
+  background: var(--bg);
+  font-family: 'Red Hat Mono', monospace;
+  position: relative;
+  min-height: 90vh;
+  margin: 5vh auto;
+  padding: 0;
+  max-width: 80em;
+  display: flex;
+  align-content: center;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+#popup {
+  background: var(--white);
+  min-height: 12em;
+  width: 36em;
+  max-width: calc(100% - 3em);
+  min-width: 10em;
+  margin: auto;
+  box-shadow: 0.5em 1em black;
+  position: relative;
+  color: black;
+  padding: 1em 1.5em;
+}
+
+#popup::before {
+  content: "";
+  position: absolute;
+  top: 0.5em;
+  left: 0.5em;
+  width: calc(100% - 1em - 2px);
+  height: calc(100% - 1em - 2px);
+  border: 1px solid;
+  pointer-events: none;
+}
+
+body > h1 {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  font-size: 12px;
+}
+
+b {
+  font-weight: bold;
+}
+
+legend {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translatex(-50%);
+  width: max-content;
+  background: inherit;
+  z-index: 3;
+  padding: 0 0.5em;
+  border: 1px solid black;
+  border-top: none;
+  border-bottom: none;
+  color: var(--red);
+  font-weight: 600;
+}
+
+body > * {
+  color: white;
+  margin: 0;
+}
+
+nav {
+  display: flex;
+  width: 100%;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  margin: 1.5em 0 1em;
+}
+
+nav span {
+  width: 100%;
+  display: block;
+}
+
+nav a {
+  color: inherit;
+  text-decoration: none;
+}
+
+nav a::before {
+  content: "<";
+}
+nav a::after {
+  content: ">";
+}
+
+nav a:focus,
+nav a:hover {
+  background: var(--red);
+  color: white;
+}
+
+input[type="checkbox"]{
+width: 0;
+height: 0;
+appearance: none;
+  margin: 0;
+}
+
+#popup ul {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0;
+  clear: both;
+  float: left;
+  width: 100%;
+}
+
+#popup li {
+  margin-bottom: 10px;
+  font-style: italic;
+  float: left;
+  width: 100%;
+  clear: both;
+  border-bottom: 2px solid #999;
+  padding-bottom: 5px;
+}
+
+#popup li a {
+  float: right;
+  font-weight: bold;
+}
+
+#popup li a,
+#popup label {
+  cursor: pointer;
+  color: var(--bg);
+  font-style: normal;
+}
+
+#popup li a:hover,
+#popup li a:focus,
+#popup label:hover,
+#popup input:focus + label {
+  background: var(--bg);
+  color: var(--white);
+  text-decoration: none;
+}
+
+#popup label::before {
+  content: "[ ] ";
+  text-decoration: none;
+}
+
+#popup input:checked + label::before {
+  content: "[*] ";
+}
