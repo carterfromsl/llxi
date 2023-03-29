@@ -3,7 +3,7 @@
 :root {
   --bg: #0c8081;
   --white: #bfbfbf;
-  --black: #000;
+  --black: #222;
   --red: #bb2323;
 }
 
@@ -33,21 +33,13 @@ body {
   font-family: 'Red Hat Mono', monospace;
   position: relative;
   min-height: 90vh;
-  margin: 5vh auto;
-  padding: 0;
+  margin: auto;
   max-width: 80em;
   width: 100%;
   display: flex;
   align-content: center;
   flex-direction: column;
   overflow-x: hidden;
-}
-
-@media only screen and (max-width: 767px) {
-  body {
-    height: 100vh;
-    margin: 0;
-  }
 }
 
 body::after {
@@ -92,37 +84,39 @@ body::before {
   opacity: 0.8;
 }
 
+@media only screen and (max-width: 767px) {
+  body {
+    height: 100vh;
+    margin: 0;
+  }
+  body::before {
+    opacity: 0.45;
+  }
+}
+
 #popup {
   background: var(--white);
   min-height: 12em;
   width: 36em;
-  max-width: calc(100% - 3em);
+  max-width: calc(100% - 4em);
+  max-height: calc(100vh - 180px);
   min-width: 10em;
   margin: auto;
-  box-shadow: 0.5em 1em black;
+  box-shadow: 0 0 0 1px var(--black),0 0 0 0.5em var(--white),0.5em 1em 0 0.5em var(--black);
   position: relative;
-  color: black;
+  color: var(--black);
   padding: 1em 1.5em;
-}
-
-#popup::before {
-  content: "";
-  position: absolute;
-  top: 0.5em;
-  left: 0.5em;
-  width: calc(100% - 1em - 2px);
-  height: calc(100% - 1em - 2px);
-  border: 1px solid;
-  pointer-events: none;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 h1 {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 15px;
+  left: 15px;
   font-size: 14px;
   font-family: 'Silkscreen', monospace;
-  text-shadow: 0.05em 0.1em black;
+  text-shadow: 0.1em 0.15em var(--black);
   user-select: none;
 }
 
@@ -131,12 +125,12 @@ b {
 }
 
 legend {
-  position: absolute;
-  top: 0;
+  position: sticky;
+  top: -1em;
   left: 50%;
   transform: translatex(-50%);
   width: max-content;
-  background: inherit;
+  background: var(--white);
   z-index: 3;
   padding: 0 0.5em;
   border: 1px solid black;
@@ -144,6 +138,22 @@ legend {
   border-bottom: none;
   color: var(--red);
   font-weight: 600;
+}
+
+legend::before,
+legend::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 50%;
+  background: inherit;
+  right: calc(100% + 1px);
+  width: 20em;
+  border-bottom: 1px solid var(--black);
+}
+legend::after {
+  right: unset;
+  left: calc(100% + 1px);
 }
 
 body > * {
