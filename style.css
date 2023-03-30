@@ -12,6 +12,20 @@
   font-size: 15px;
   line-height: 1.5em;
   font-weight: normal;
+  scrollbar-width: thin;
+  scrollbar-color: var(--bg) transparent;
+}
+
+*::-webkit-scrollbar {
+  width: 12px;
+}
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+*::-webkit-scrollbar-thumb {
+  border-radius: 0;
+  background-color: var(--bg);
+  border: 2px solid transparent;
 }
 
 *::selection {
@@ -33,7 +47,7 @@ body {
   font-family: 'Red Hat Mono', monospace;
   position: relative;
   min-height: 90vh;
-  margin: auto;
+  margin: 5vh auto;
   max-width: 80em;
   width: 100%;
   display: flex;
@@ -99,7 +113,7 @@ body::before {
   min-height: 12em;
   width: 36em;
   max-width: calc(100% - 4em);
-  max-height: calc(100vh - 180px);
+  max-height: calc(100vh - 200px);
   min-width: 10em;
   margin: auto;
   box-shadow: 0 0 0 1px var(--black),0 0 0 0.5em var(--white),0.5em 1em 0 0.5em var(--black);
@@ -108,6 +122,21 @@ body::before {
   padding: 1em 1.5em;
   overflow-y: auto;
   overflow-x: hidden;
+  opacity: 0;
+  animation: popup 0.8s steps(7);
+  animation-delay: 0.8s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes popup {
+  0% {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 h1 {
@@ -118,6 +147,7 @@ h1 {
   font-family: 'Silkscreen', monospace;
   text-shadow: 0.1em 0.15em var(--black);
   user-select: none;
+  padding-right: 40%;
 }
 
 b {
@@ -224,6 +254,17 @@ appearance: none;
   background: #ccc;
 }
 
+#popup li div {
+  font-style: normal;
+  margin-top: 0.5em;
+  display: none;
+  font-size: 0.85em;
+}
+
+#popup li:hover div {
+  display: block;
+}
+
 #popup li a {
   float: right;
   font-weight: bold;
@@ -231,6 +272,19 @@ appearance: none;
 
 #popup li:hover a::before {
   content: "»";
+  animation: flash 1s infinite steps(1);
+}
+
+@keyframes flash {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 #popup li a,
@@ -258,10 +312,18 @@ appearance: none;
   content: "[*] ";
 }
 
+@media only screen and (max-width: 767px) {
+  #popup li a {
+    display: block;
+    float: none;
+    max-width: max-content;
+  }
+}
+
 .topright,
 .bottomleft {
   width: 300px;
-  max-width: 40%;
+  max-width: 42%;
   position: absolute;
   padding: 10px;
   user-select: none;
