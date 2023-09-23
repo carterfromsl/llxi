@@ -75,6 +75,7 @@ body::after {
   mix-blend-mode: overlay;
   opacity: 0.25;
   pointer-events: none;
+  z-index: 9;
 }
 
 body::before {
@@ -108,6 +109,7 @@ body::before {
   }
 }
 
+
 #popup {
   background: var(--white);
   min-height: 12em;
@@ -126,6 +128,23 @@ body::before {
   animation: popup 0.8s steps(7);
   animation-delay: 0.8s;
   animation-fill-mode: forwards;
+  z-index: 2;
+}
+
+#desktop {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: unset;
+  z-index: 0;
+  color: var(--white);
+  text-align: center;
+}
+
+#desktop img {
+  width: 200px;
+  height: 200px;
 }
 
 @keyframes popup {
@@ -133,10 +152,42 @@ body::before {
     opacity: 0;
     transform: scale(0.5);
   }
+  25% {
+    opacity: 1;
+  }
   100% {
     opacity: 1;
     transform: scale(1);
   }
+}
+
+/*#popup:not(.hidden) + .backpanel {
+  min-height: 12em;
+  width: 36em;
+  height: 100%;
+  max-width: calc(100% - 4em);
+  max-height: calc(100vh - 200px);
+  min-width: 10em;
+  margin: auto;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--bg); 
+  box-shadow: 0 0 0 10px var(--bg);
+  z-index: 1;
+}*/
+
+#popup:not(.hidden) + .backpanel button,
+#popup.hidden {
+  display: none;
+}
+
+#popup.hidden + .backpanel {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  padding: 20px;
 }
 
 h1 {
@@ -154,8 +205,38 @@ b {
   font-weight: bold;
 }
 
+.button,
+button {
+  position: relative;
+  appearance: none;
+  border: 1px solid;
+  font-size: 16px;
+  padding: 8px 16px;
+  cursor: pointer;
+  background: var(--white);
+  color: var(--black);
+  font-family: 'Silkscreen', monospace;
+  box-shadow: 0 0 0 2px var(--white), 7px 12px;
+}
+
+.button:hover,
+button:hover {
+  color: var(--white);
+  background: var(--red);
+  box-shadow: 0 0 0 2px var(--red), 7px 12px var(--black);
+}
+
+.button:focus,
+button:focus {
+  background: var(--red);
+  color: var(--white);
+  transform: translate(5px, 11px);
+  box-shadow: 0 0 0 2px var(--red);
+}
+
 legend {
   position: sticky;
+  font-family: 'Silkscreen', monospace;
   top: -1em;
   left: 50%;
   transform: translatex(-50%);
@@ -167,7 +248,7 @@ legend {
   border-top: none;
   border-bottom: none;
   color: var(--red);
-  font-weight: 600;
+  font-weight: normal;
 }
 
 legend::before,
@@ -242,6 +323,7 @@ appearance: none;
 
 #popup li {
   font-style: italic;
+  position: relative;
   float: left;
   width: 100%;
   clear: both;
@@ -268,6 +350,15 @@ appearance: none;
 #popup li a {
   float: right;
   font-weight: bold;
+}
+
+#popup li a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 #popup li:hover a::before {
