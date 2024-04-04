@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>LLXI.me | Lord William Carter Lovelace XI</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" href="https://cybersandbox.ca/wp-content/uploads/2023/03/gear-min.gif">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <h1>Lord William Carter Lovelace XI - Index</h1>
+
+<img class="topright" src="https://cybersandbox.ca/wp-content/uploads/2023/03/gears-tr.gif" alt="Gears" />
+
+<img class="bottomleft" src="https://cybersandbox.ca/wp-content/uploads/2023/03/gears-bl.gif" alt="Gears" />
+
+<aside id="desktop">
+  <img src="https://assets.codepen.io/5896374/skull2.gif" alt="" />
+  <p><a class="button" href="https://cybersandbox.ca/" target="_blank">cybersandbox.ca</a></p>
+</aside>
+
+<main id="popup">
+  <legend>LLXI.ME Library</legend>
+  <p><b>Select a project below to view.</b></p>
+  <ul>
+    <li>BBC Adventure Dungeon 31b <a target="_blank" href="https://bad31b.llxi.me/">[bad31b.llxi.me]</a>
+      <div>[2019] Non-linear surrealist text adventure based on games for the BBC Micro computer circa 1980s.</div>
+    </li>
+    <li>Cubist Illusions <a target="_blank" href="https://cubist.llxi.me/">[cubist.llxi.me]</a>
+      <div>[2021] CSS-only pseudo-3D animation with texture toggler and speed/size sliders.</div>
+    </li>
+    <li>Famous Absinthe Drinkers <a target="_blank" href="https://absinthe.llxi.me/">[absinthe.llxi.me]</a>
+      <div>[2022] A dynamic, mobile-responsive CSS & JavaScript-based gallery, featuring the famous absinthe drinkers of the 19th and 20th centuries. Use arrow keys or swipe to navigate.</div>
+    </li>
+    <li>The Parallax Tomb <a target="_blank" href="https://parallax.quest/">[parallax.quest]</a>
+      <div>[2022] Unfinished 3D escape room game (flashing lights)</div>
+    </li>
+    <li>Escape from Tenopia <a target="_blank" href="https://tenopia.llxi.me/">[tenopia.llxi.me]</a>
+      <div>[2022/23] Digital re-creation of a classic Choose-Your-Own-Adventure book in Twine 2.0</div>
+    </li>
+    <li>Untitled Escape Game <a target="_blank" href="https://escape.llxi.me/">[escape.llxi.me]</a>
+      <div>[2023] Unfinished CRT-inspired escape game.</div>
+    </li>
+  </ul>
+  <nav>
+    <span><a href="#" onClick="closePopup()">Ok</a></span>
+    <span><a href="#" onClick="closePopup()">Cancel</a></span>
+  </nav>
+</main>
+
+<div class="backpanel"><button onClick="closePopup()">Launch Library</button></div>
+
+<script>
+  function closePopup() {
+    event.preventDefault();
+    var popup = document.getElementById('popup');
+    popup.classList.toggle('hidden');
+  }
+</script>
+
+</body>
+
+</html>
