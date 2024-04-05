@@ -57,6 +57,19 @@
 
 </main>
 
+  <footer>
+    <script>
+      // Set the body's pointer events to none, discouraging any interaction for 1 second while loading
+window.addEventListener('load', function() {
+  document.body.style.pointerEvents = 'none';
+  
+  setTimeout(function() {
+    document.body.style.pointerEvents = 'all';
+  }, 1000);
+});
+    </script>
+  </footer>
+
 </body>
 
 </html>
