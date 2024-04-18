@@ -11,63 +11,49 @@
 
 <body>
 
-  <header class="logo">
-  <h1>Lord William Carter Lovelace XI</h1>
-</header>
+<h1>Lord William Carter Lovelace XI - Index</h1>
 
-<main>
+<img class="topright" src="https://cybersandbox.ca/wp-content/uploads/2023/03/gears-tr.gif" alt="Gears" />
 
-  <article>
-    <div>
-      <h2>Web Developer</h2>
-      <h4>HTML & CSS + JavaScript</h4>
-      <nav>
-        <a href="https://llxi.me/projects">Personal Projects</a>
-        <a href="https://llxi.me/work">Professional Work</a>
-        <a href="https://codepen.io/carterfromsl" target="_blank">CodePen</a>
-        <a href="https://github.com/carterfromsl" target="_blank">GitHub</a>
-      </nav>
-    </div>
-    <img src="https://cybersandbox.ca/wp-content/uploads/2024/04/css-code.jpg">
-  </article>
+<img class="bottomleft" src="https://cybersandbox.ca/wp-content/uploads/2023/03/gears-bl.gif" alt="Gears" />
 
-  <article>
-    <div>
-      <h2>Digital & <span style="display: inline-block">Traditional Artist</span></h2>
-      <h4>Graphic Design & Photography; Abstract Works</h4>
-      <nav>
-        <a href="#">Graphic Design</a>
-        <a href="#">Art & Paintings</a>
-      </nav>
-    </div>
-    <img src="https://cybersandbox.ca/wp-content/uploads/2024/04/hat-canvas.jpg">
-  </article>
+<aside id="desktop">
+  <img src="https://assets.codepen.io/5896374/skull2.gif" alt="" />
+  <p><a class="button" href="https://cybersandbox.ca/" target="_blank">cybersandbox.ca</a></p>
+</aside>
 
-  <article>
-    <div>
-      <h2>Collector of Oddities</h2>
-      <h4>Antiques, Hats, Antique Hats, etc</h4>
-      <nav>
-        <a href="https://archive.llxi.me/">View Collection</a>
-      </nav>
-    </div>
-    <img src="https://cybersandbox.ca/wp-content/uploads/2024/04/oddities.jpg">
-  </article>
-
+<main id="popup">
+  <legend>LLXI.ME Homepage</legend>
+  <p><b>Select a resource below to view.</b></p>
+  <ul>
+    <li>Personal Projects <a href="https://llxi.me/projects/">[llxi.me/projects]</a>
+    </li>
+    <li>Professional Work <a href="https://llxi.me/work/">[llxi.me/work]</a>
+    </li>
+    <li>Collection & Archive <a href="https://archive.llxi.me/projects/">[archive.llxi.me]</a>
+    </li>
+    <li>Visit My Blog <a target="_blank" href="https://cybersandbox.ca/">[cybersandbox.ca]</a>
+    </li>
+    <li>Codepen <a target="_blank" href="https://codepen.io/carterfromsl">[codepen.io/carterfromsl]</a>
+    </li>
+    <li>Github <a target="_blank" href="https://github.com/carterfromsl">[github.com/carterfromsl]</a>
+    </li>
+  </ul>
+  <nav>
+    <span><a href="#" onClick="closePopup()">Ok</a></span>
+    <span><a href="#" onClick="closePopup()">Cancel</a></span>
+  </nav>
 </main>
 
-  <footer>
-    <script>
-      // Set the body's pointer events to none, discouraging any interaction for 1 second while loading
-window.addEventListener('load', function() {
-  document.body.style.pointerEvents = 'none';
-  
-  setTimeout(function() {
-    document.body.style.pointerEvents = 'all';
-  }, 1000);
-});
-    </script>
-  </footer>
+<div class="backpanel"><button onClick="closePopup()">Launch Library</button></div>
+
+<script>
+  function closePopup() {
+    event.preventDefault();
+    var popup = document.getElementById('popup');
+    popup.classList.toggle('hidden');
+  }
+</script>
 
 </body>
 
